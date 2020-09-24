@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using UnityEngine;
 
-namespace Runtime
+namespace EcsExtensions.Runtime
 {
     public static class MonoExtensions
     {
