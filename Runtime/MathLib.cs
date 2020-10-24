@@ -1,4 +1,4 @@
-﻿namespace MathLib.Runtime
+﻿namespace MathLibs.Runtime
 {
     public static class MathLib
     {
