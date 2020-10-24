@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using UnityEngine;
 
-namespace EcsExtensions.Runtime
+namespace MonoExtensions.Runtime
 {
     public static class MonoExtensions
     {
@@ -29,6 +29,33 @@ namespace EcsExtensions.Runtime
             else
             {
                 behaviour = c.FirstOrDefault();
+            }
+        }
+
+        public static void Toggle(this Transform transform, bool isEnabled)
+        {
+            if (transform == null)
+            {
+                return;
+            }
+
+            Toggle(transform.gameObject, isEnabled);
+        }
+
+        public static void Toggle(this GameObject gameObject, bool isEnabled)
+        {
+            if (gameObject == null)
+            {
+                return;
+            }
+
+            if (!gameObject.activeSelf && isEnabled)
+            {
+                gameObject.SetActive(true);
+            }
+            else if (gameObject.activeSelf && !isEnabled)
+            {
+                gameObject.SetActive(false);
             }
         }
     }
