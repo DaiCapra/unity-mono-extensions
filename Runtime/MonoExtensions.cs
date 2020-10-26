@@ -1,5 +1,7 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace MonoExtensions.Runtime
 {
@@ -57,6 +59,31 @@ namespace MonoExtensions.Runtime
             {
                 gameObject.SetActive(false);
             }
+        }
+
+        public static void Bind(this Button button, Action callback)
+        {
+            if (button == null)
+            {
+                return;
+            }
+
+            if (callback == null)
+            {
+                return;
+            }
+
+            button.onClick.AddListener(callback.Invoke);
+        }
+
+        public static void ClearBinds(this Button button)
+        {
+            if (button == null)
+            {
+                return;
+            }
+
+            button.onClick.RemoveAllListeners();
         }
     }
 }
