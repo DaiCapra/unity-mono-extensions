@@ -61,6 +61,26 @@ namespace MonoExtensions.Runtime
             }
         }
 
+        public static void Toggle(this Transform transform)
+        {
+            if (transform == null)
+            {
+                return;
+            }
+
+            transform.gameObject.Toggle();
+        }
+
+        public static void Toggle(this GameObject gameObject)
+        {
+            if (gameObject == null)
+            {
+                return;
+            }
+
+            gameObject.Toggle(!gameObject.activeSelf);
+        }
+
         public static void Bind(this Button button, Action callback)
         {
             if (button == null)
